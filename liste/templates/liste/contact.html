@@ -1,0 +1,26 @@
+{% load static %}
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page de Contact</title>
+        <link rel="stylesheet" href="{% static 'liste/contact.css' %}">
+    </head>
+<body>
+    <nav>
+        <a href="{% url 'band-list' %}">Groupes</a>
+        <a href="{% url 'annonce-list' %}">Annonces</a>
+        <a href="{% url 'about-us' %}">A propos de nous</a>
+      </nav>
+
+    <div class="contact-container">
+        <p class="help-text">Nous sommes là pour vous aider.</p>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Envoyer" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>

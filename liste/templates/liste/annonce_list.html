@@ -1,0 +1,14 @@
+{% extends 'liste/base.html' %}
+
+{% block content %}
+
+<h1>Annonce</h1>
+
+<ul>
+    {% for annonce in annonces %}
+    <li><a href="{% url 'annonce-det' annonce.id %}">{{ annonce.titre }}</a></li>
+  {% endfor %}
+</ul>
+<a href="{% url 'annonce-create' %}">Créer une nouvelle annonce</a>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'liste/base.html' %}
+
+{% block content %}
+
+<h2>{{ annonce.titre }}</h2>
+
+<ul>
+    <li>Type : {{ annonce.type }}</li>
+    <li>Année : {{ annonce.year }}</li>
+    <li>Sold : {{ annonce.sold|yesno }}</li>
+   {% if annonce.official_homepage %}
+   <li><a href="{{ annonce.official_homepage }}">{{ annonce.official_homepage }}</a></li>
+   {% endif %}
+</ul>
+
+<p>Description : {{ annonce.description }}</p>
+
+<div>
+    <a href="{% url 'annonce-update' annonce.id %}">Modifier</a>
+</div>
+<div>
+    <a href="{% url 'annonce-delete' annonce.id %}">Supprimer cette annonce</a>
+</div>
+<div>
+    <a href="{% url 'annonce-list' %}">Retour à tous les Annonces</a>
+</div>
+
+
+{% endblock %}

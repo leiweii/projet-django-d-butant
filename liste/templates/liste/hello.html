@@ -2,18 +2,13 @@
 
 {% block content %}
 
+<h1>Django débutant</h1>
 
-<h1>Hello Django !</h1>
-
-<p>Mes groupes préférés sont :</p>
-            
-
+<p>Compétences maîtrisées :</p>
 <ul>
-    {% for band in bands %}
-        <li>
-            {{ band.name }}
-        </li>
-    {% endfor %}
+    <li>Poser les bases d’une application Django en utilisant des modèles, des vues et des gabarits.</li>
+    <li>Gérer des données stockées dans une base de données à l'aide du site d'administration de Django.</li>
+    <li>Construire une interface CRUD dans Django.</li>
 </ul>
 
 {% endblock %}

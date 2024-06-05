@@ -18,12 +18,10 @@ from django.contrib import admin
 from django.urls import path
 
 from liste import views
-import authentication.views
-import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/', views.hello),
+    path('', views.hello, name='hello'),
     path('about-us/', views.about, name='about-us'),
     path('bands/', views.band_list),
     path('bands/<int:id>/', views.band_detail, name='band-detail'),
@@ -41,8 +39,4 @@ urlpatterns = [
 
     path('contact-us/',views.contact, name='contact'),
     path('confirmation/', views.confirmation, name='confirmation'),
-
-    path('', authentication.views.login_page, name='login'),
-    path('logout/', authentication.views.logout_user, name='logout'),
-    path('home/', blog.views.home, name='home'),
 ]

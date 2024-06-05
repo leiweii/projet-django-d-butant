@@ -50,23 +50,18 @@ def contact(request):
 
         if form.is_valid():
             send_mail(
-            subject=f'Message from {form.cleaned_data["name"] or "anonyme"} via MerchEx Contact Us form',
-            message=form.cleaned_data['message'],
-            from_email=form.cleaned_data['email'],
-            recipient_list=['admin@merchex.xyz'],
-        )
-        return redirect('confirmation')  # ajoutez cette instruction de retour
-    # si le formulaire n'est pas valide, nous laissons l'exécution continuer jusqu'au return
-    # ci-dessous et afficher à nouveau le formulaire (avec des erreurs).
-
+                subject=f'Message from {form.cleaned_data["Nom"] or "anonyme"} via MerchEx Contact Us form',
+                message=form.cleaned_data['message'],
+                from_email=form.cleaned_data['email'],
+                recipient_list=['shileiwei200@gmail.com'],
+            )
+            # Rediriger vers une page de remerciement ou afficher un message de succès
+            return redirect('confirmation')  # remplacez 'confirmation' par l'URL appropriée
     else:
-    # ceci doit être une requête GET, donc créer un formulaire vide
-     form = ContactUsForm()
+        # ceci doit être une requête GET, donc créer un formulaire vide
+        form = ContactUsForm()
 
-    return render(request,
-            'liste/contact.html',
-            {'form': form})
-
+    return render(request, 'liste/contact.html', {'form': form})
 
 def confirmation(request):
     return render(request, 'liste/confirmation.html')
